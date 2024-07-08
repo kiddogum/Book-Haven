@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Daito Normal";
+  font-weight: 400;
+  src: url("./daito/Daito-NormalRegular.otf");
+}
+@font-face {
+  font-family: "Daito Normal";
+  font-weight: 300;
+  src: url("./daito/Daito-NormalLight.otf");
+}
+@font-face {
+  font-family: "Daito Normal";
+  font-weight: 700;
+  src: url("./daito/Daito-NormalBold.otf");
+}
+@font-face {
+  font-family: "Daito Normal";
+  font-weight: 400;
+  font-style: italic;
+  src: url("./daito/Daito-NormalRegularItalic.otf");
+}
