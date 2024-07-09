@@ -11,6 +11,11 @@ export default {
         primary: "#F9F8F6",
         secondary: "#0C1220",
       },
+      screens: {
+        lg: { max: "1439px" },
+        md: { max: "1024px" },
+        sm: { max: "767px" },
+      },
     },
   },
   plugins: [],
