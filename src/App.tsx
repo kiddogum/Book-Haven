@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { ImSpinner } from "react-icons/im";
+import { BsFillSendFill } from "react-icons/bs";
 import rowling from "./assets/author_rowling.jpg";
 import orwell from "./assets/author_orwell.jpg";
 import austen from "./assets/author_austen.jpg";
@@ -143,7 +144,7 @@ const App = () => {
           <div className="flex justify-between">
             <h2 className="text-logo">Book Haven</h2>
 
-            <ul className="nav-list">
+            <ul className="nav-list sm:hidden">
               <li className="text-nav-item">
                 <a href="">Home</a>
               </li>
@@ -160,20 +161,22 @@ const App = () => {
 
       <section className="hero bg-primary">
         <div className="responsive-container">
-          <div className="flex items-center justify-between pt-24  ">
-            <div className="w-1/2 self-center flex flex-col gap-6">
+          <div className="flex items-center justify-between pt-24 lg:pt-16 md:flex-col md:text-center sm:pt-0">
+            <div className="w-1/2 self-center flex flex-col md:w-full">
               <h1 className="text-title">Find Your Next Book</h1>
-              <p className="w-3/4 text-desc">
+              <p className="text-desc w-3/4 mt-2 md:w-full">
                 Discover Your Next Favorite Read with Personalized
                 Recommendations, Curated Collections, and a Vibrant Community of
                 Book Lovers.
               </p>
-              <button className="black-button">Explore Now</button>
+              <button className="black-button mt-6 md:mx-auto">
+                Explore Now
+              </button>
             </div>
             {isLoading ? (
               <ImSpinner className="w-1/2 flex items-center text-9xl animate-spin" />
             ) : (
-              <div className="w-1/2 flex justify-between">
+              <div className="w-1/2 flex justify-between md:w-full md:mt-12">
                 <HeroCards
                   img={bird}
                   title={`To Kill a Mockingbird`}
@@ -203,7 +206,7 @@ const App = () => {
           </div>
           <div className="book-slider">
             <motion.div
-              className=" flex mt-8"
+              className=" flex mt-8 md:mt-4"
               drag="x"
               dragConstraints={{
                 left: -(discoverScrollWidth! - discoverOffsetWidth!),
@@ -237,9 +240,9 @@ const App = () => {
             <p className="text-nav-item">See More</p>
           </div>
 
-          <div className="author-slider bg-secondary">
+          <div className="author-slider bg-secondary h-[350px] md:h-[400px] sm:!h-max sm:!py-6 sm:mt-4">
             <motion.div
-              className=" relative h-[350px] mt-8 flex "
+              className=" relative mt-8 flex gap-12 md:mt-6 sm:!mt-0 "
               drag="x"
               dragConstraints={{
                 left: -(authorScrollWidth! - authorOffsetWidth!),
@@ -270,23 +273,23 @@ const App = () => {
 
       <section className="relative event bg-secondary overflow-y-hidden">
         <BookCollection />
-        <div className="responsive-container min-h-[450px] flex items-center justify-end ">
-          <div className="w-1/3 pt-12 pr-12 text-primary text-center border-solid border-b-0 border-l-0 border-primary lg:w-1/2">
+        <div className="responsive-container min-h-[450px] flex items-center justify-end md:min-h-max ">
+          <div className="w-1/3 pt-12 pr-12 text-primary text-center border-solid border-b-0 border-l-0 border-primary lg:w-1/2 md:min-w-full sm:px-4 sm:pt-4">
             <h2 className="text-title2">Online Book Fairs 2024</h2>
-            <p className="text-desc mt-4">
+            <p className="text-desc mt-2  ">
               Explore a world of literature from the comfort of your home with
               Online Book Fairs 2024. This year's virtual book fairs bring
               together readers, authors, and publishers from around the globe to
               celebrate the joy of reading.
             </p>
-            <button className="outline-button mt-4">Explore Now</button>
+            <button className="outline-button mt-6">Explore Now</button>
           </div>
         </div>
       </section>
 
       <section className="footer bg-white">
         <div className="responsive-container min-h-max">
-          <div className="flex justify-between">
+          <div className="flex justify-between md:flex-wrap sm:gap-6">
             <ul className=" flex flex-col gap-3">
               <h2 className="footer-subtitle">Company</h2>
               <li className="text-desc">
@@ -323,16 +326,16 @@ const App = () => {
               </li>
             </ul>
 
-            <div className="w-1/4 flex flex-col gap-3">
+            <div className="footer-contact w-1/4 flex flex-col gap-3 md:w-full md:mt-12">
               <h2 className="footer-subtitle">Contact Us</h2>
-              <form action="POST" className="flex flex-col gap-3">
+              <form action="POST" className="relative flex md:w-1/2 sm:!w-full">
                 <input
                   type="text"
                   className="outline-input"
                   placeholder="enter your email here..."
                 />
                 <button className="footer-button" type="submit">
-                  Send Email
+                  <BsFillSendFill />
                 </button>
               </form>
             </div>

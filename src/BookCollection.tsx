@@ -50,19 +50,21 @@ const BookCollection = () => {
     },
   ];
   return (
-    <div className="absolute -top-1/2 -left-[10%] w-2/3 flex flex-wrap justify-between gap-y-6 rotate-[15deg] lg:w-1/2">
+    <div className="absolute -top-1/2 -left-[10%] w-2/3 flex flex-wrap justify-between gap-y-6 rotate-[15deg] lg:w-1/2 md:hidden">
       {cardCollections.map((card, i) =>
         i % 2 === 0 ? (
           <ReverseHeroCards
             img={`https://picsum.photos/id/${card.id}/200`}
             title={card.title}
             author={card.author}
+            key={i}
           />
         ) : (
           <HeroCards
             img={`https://picsum.photos/id/${card.id}/200`}
             title={card.title}
             author={card.author}
+            key={i}
           />
         )
       )}
