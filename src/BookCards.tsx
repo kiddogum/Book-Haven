@@ -11,11 +11,11 @@ type RetailPrice = {
 };
 
 const BookCards = ({ img, retailPrice, title, authors }: BookCardsProps) => {
-  const newTitle = title.length > 25 ? title.substring(0, 25) : title;
+  const newTitle = title.length > 30 ? `${title.substring(0, 30)}...` : title;
 
   return (
-    <div className="w-1/4 flex flex-col">
-      <div className=" w-[300px] h-[400px] ">
+    <div className=" bg-white p-8 flex flex-col hover:bg-primary lg:p-4">
+      <div className=" w-[250px] h-[300px] lg:w-[200px]">
         <img
           src={img}
           className="object-cover w-full h-full border-2 border-black"

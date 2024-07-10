@@ -13,7 +13,7 @@ export default {
       },
       screens: {
         lg: { max: "1439px" },
-        md: { max: "1024px" },
+        md: { max: "1023px" },
         sm: { max: "767px" },
       },
     },
