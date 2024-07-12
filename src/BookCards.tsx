@@ -1,3 +1,5 @@
+import notFound from "./assets/notfound.png";
+
 type BookCardsProps = {
   img: string | undefined;
   retailPrice: RetailPrice;
@@ -15,9 +17,9 @@ const BookCards = ({ img, retailPrice, title, authors }: BookCardsProps) => {
 
   return (
     <div className=" bg-white p-8 flex flex-col hover:bg-primary lg:p-4 md:!p-1">
-      <div className="book-card w-[250px] h-[300px] lg:w-[200px] sm:!w-[150px] sm:!h-[200px]">
+      <div className="book-card w-full h-[300px] lg:w-[200px] sm:!w-[150px] sm:!h-[200px]">
         <img
-          src={img}
+          src={img ? img : notFound}
           className="object-cover w-full h-full border-2 border-black"
         />
       </div>
