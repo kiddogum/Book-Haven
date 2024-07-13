@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { ImSpinner } from "react-icons/im";
 import { BsFillSendFill } from "react-icons/bs";
