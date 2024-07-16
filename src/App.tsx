@@ -98,36 +98,25 @@ const App = () => {
     printType: "all",
     startIndex: 0,
   });
-  const categories = [
-    "romance",
-    "mystery",
-    "pirate",
-    "think",
-    "space",
-    "earth",
-    "first",
-    "children",
-    "haunted",
-  ];
 
   const handleQueries = (searchQueries: QueriesProps) => {
-    setQueries(searchQueries);
+    setQueries((prevQueries) => ({ ...prevQueries, ...searchQueries }));
+    console.log(searchQueries);
   };
 
   useEffect(() => {
-    fetchData();
+    if (queries) {
+      fetchData();
+    }
   }, [queries, queries?.startIndex]);
 
   const fetchData = async () => {
     try {
       setIsLoading(true);
 
-      const randomCategories =
-        categories[Math.floor(Math.random() * categories.length)];
-
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${
-          queries?.titleSearch || randomCategories
+          queries?.titleSearch || `Harry Potter`
         }+inauthor:${queries?.authorSearch}&projection=lite&printType=${
           queries?.printType
         }&orderBy=${queries?.orderBy}&startIndex=${
@@ -139,7 +128,6 @@ const App = () => {
       }
       const data = await response.json();
       setBooks(data);
-      console.log(data);
     } catch (e) {
       setError(e instanceof Error ? e.message : "An unknown error occurred");
       console.error(error);
@@ -151,7 +139,10 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/Book-Haven/" element={<Layout />}>
+      <Route
+        path="/Book-Haven/"
+        element={<Layout sendDataToApp={handleQueries} />}
+      >
         <Route
           index
           element={<HomePage books={books} isLoading={isLoading} />}
@@ -163,6 +154,7 @@ const App = () => {
               books={books}
               isLoading={isLoading}
               sendDataToApp={handleQueries}
+              queries={queries}
             />
           }
         />

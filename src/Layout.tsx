@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 
-const Layout = () => {
+const Layout = ({ sendDataToApp }: any) => {
   return (
     <>
-      <Navbar />
+      <Navbar sendDataToApp={sendDataToApp} />
       <Outlet />
     </>
   );

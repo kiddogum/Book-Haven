@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { ImSpinner } from "react-icons/im";
-import { BsFillSendFill } from "react-icons/bs";
 import rowling from "../assets/author_rowling.jpg";
 import orwell from "../assets/author_orwell.jpg";
 import austen from "../assets/author_austen.jpg";
@@ -25,8 +24,6 @@ const HomePage = ({ books, isLoading }: any) => {
   const authorScrollWidth = authorSliderRef.current?.scrollWidth;
   const authorOffsetWidth = authorSliderRef.current?.offsetWidth;
 
-  console.log(books);
-
   return (
     <div className="relative w-full min-h-dvh overflow-x-hidden">
       <section className="hero bg-primary">
@@ -43,27 +40,24 @@ const HomePage = ({ books, isLoading }: any) => {
                 Explore Now
               </button>
             </div>
-            {isLoading ? (
-              <ImSpinner className="w-1/2 flex items-center text-9xl animate-spin" />
-            ) : (
-              <div className="w-1/2 flex justify-between md:w-full md:mt-12">
-                <HeroCards
-                  img={bird}
-                  title={`To Kill a Mockingbird`}
-                  author={`Harper Lee`}
-                />
-                <ReverseHeroCards
-                  img={eightyFour}
-                  title={`1984`}
-                  author={`George Orwell`}
-                />
-                <HeroCards
-                  img={gatsby}
-                  title={`The Great Gatsby`}
-                  author={`F. Scott Fitzgerald`}
-                />
-              </div>
-            )}
+
+            <div className="w-1/2 flex justify-between md:w-full md:mt-12">
+              <HeroCards
+                img={bird}
+                title={`To Kill a Mockingbird`}
+                author={`Harper Lee`}
+              />
+              <ReverseHeroCards
+                img={eightyFour}
+                title={`1984`}
+                author={`George Orwell`}
+              />
+              <HeroCards
+                img={gatsby}
+                title={`The Great Gatsby`}
+                author={`F. Scott Fitzgerald`}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -200,13 +194,10 @@ const HomePage = ({ books, isLoading }: any) => {
               <h2 className="footer-subtitle">Contact Us</h2>
               <form action="POST" className="relative flex md:w-1/2 sm:!w-full">
                 <input
-                  type="text"
+                  type="email"
                   className="outline-input"
-                  placeholder="enter your email here..."
+                  placeholder="email..."
                 />
-                <button className="footer-button" type="submit">
-                  <BsFillSendFill />
-                </button>
               </form>
             </div>
           </div>
